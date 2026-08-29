@@ -838,6 +838,14 @@ body.menu-open{ overflow: hidden; }
   color: var(--ivory);
   max-width: 640px;
 }
+.immersive__content h1,
+.immersive__content h2,
+.immersive__content h3,
+.immersive__content .eyebrow,
+.immersive__content .lede,
+.immersive__content .body-copy{
+  color: var(--ivory);
+}
 
 /* =========================================================================
    JOURNAL CARDS
