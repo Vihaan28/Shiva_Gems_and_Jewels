@@ -62,8 +62,25 @@ collections:
           - { label: "Starting From", value: "starting_from" }
         default: "on_request"
       - { label: "Price (leave blank for Price on Request)", name: "price", widget: "string", required: false, hint: "Enter numbers only, e.g. 450000 — the website adds ₹ and commas automatically." }
-      - { label: "Primary Image", name: "primaryImage", widget: "image" }
-      - { label: "Additional Images", name: "additionalImages", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - label: "Primary Image"
+        name: "primaryImage"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
+            allow_url: true
+      - label: "Additional Images"
+        name: "additionalImages"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          media_library:
+            config:
+              multiple: false
+              allow_url: true
+        required: false
       - { label: "Featured Product (shows in a separate Featured section within the collection)", name: "featured", widget: "boolean", default: false }
       - { label: "Available", name: "available", widget: "boolean", default: true }
       - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
@@ -86,7 +103,21 @@ collections:
       - { label: "Category Name", name: "name", widget: "string" }
       - { label: "Slug (web address — lowercase, no spaces, e.g. jadau)", name: "slug", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - label: "Collection Card Image (vertical — for homepage and collections page)"
+        name: "heroImage"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
+            allow_url: true
+      - label: "Category Page Hero Image (horizontal — for the category page header)"
+        name: "pageHeroImage"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
+            allow_url: true
+        required: false
       - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
       - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
 
@@ -117,7 +148,13 @@ collections:
           - { label: "Hero Eyebrow (small text above the headline)", name: "heroEyebrow", widget: "string" }
           - { label: "Hero Heading (use | for a line break)", name: "heroHeading", widget: "string" }
           - { label: "Hero Description", name: "heroDescription", widget: "text" }
-          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - label: "Hero Image"
+            name: "heroImage"
+            widget: "image"
+            media_library:
+              config:
+                multiple: false
+                allow_url: true
           - { label: "Explore Collections Button Text", name: "ctaText", widget: "string" }
           - { label: "Story Section Eyebrow", name: "storyEyebrow", widget: "string" }
           - { label: "Story Section Heading (use | for a line break)", name: "storyHeading", widget: "string" }

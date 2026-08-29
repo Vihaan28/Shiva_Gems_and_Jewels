@@ -45,7 +45,12 @@
     if (category.heroImage) {
       document.getElementById("categoryHeroImage").setAttribute("src", category.heroImage);
       document.getElementById("categoryHeroImage").setAttribute("alt", category.name + " jewellery — Shiva Gems and Jewels");
-      document.getElementById("categorySplitImage").setAttribute("src", category.heroImage);
+    }
+    
+    // Use page hero image if provided, otherwise fall back to collection card image
+    const pageHero = category.pageHeroImage || category.heroImage;
+    if (pageHero) {
+      document.getElementById("categorySplitImage").setAttribute("src", pageHero);
       document.getElementById("categorySplitImage").setAttribute("alt", category.name + " jewellery — Shiva Gems and Jewels");
     }
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta id="pageTitle" name="title" content="Featured | Shiva Gems and Jewels">
+  <meta id="pageDescription" name="description" content="Curated featured pieces from Shiva Gems and Jewels — diamonds, gold and polki jewellery.">
+  <link rel="canonical" href="https://www.shivagemsandjewels.example/featured.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Featured | Shiva Gems and Jewels">
+  <meta property="og:description" content="Curated featured pieces from Shiva Gems and Jewels.">
+  <meta property="og:type" content="website">
+  <meta id="ogImage" property="og:image" content="assets/gold/gold-feature-01.jpg">
+
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div class="splash" aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__logo" src="assets/logo/IMG_3009.jpeg" alt="" width="92" height="92">
+      <span class="splash__brand">Shiva Gems &amp; Jewels</span>
+      <span class="splash__since">Since 2006</span>
+      <div class="splash__line"></div>
+    </div>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header page-header-dark">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="Shiva Gems and Jewels — Home">
+        <img class="site-logo__mark" src="assets/logo/IMG_3009.jpeg" alt="Shiva Gems and Jewels logo" width="40" height="40">
+        <span class="site-logo__word">Shiva Gems &amp; Jewels <small>· Est. 2006</small></span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a class="nav-link" href="collections.html">Collections</a>
+        <a class="nav-link" href="story.html">Our Story</a>
+        <a class="nav-link" href="craftsmanship.html">Craft</a>
+        <a class="nav-link" href="journal.html">Journal</a>
+        <a class="nav-link" href="visit.html">Visit Us</a>
+      </nav>
+
+      <div style="display:flex; align-items:center; gap:28px;">
+        <a class="nav-cta" href="contact.html">Book an Appointment ↗</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="nav-toggle__bars"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__list" aria-label="Mobile">
+      <a href="collections.html">Collections</a>
+      <a href="story.html">Our Story</a>
+      <a href="craftsmanship.html">Craft</a>
+      <a href="journal.html">Journal</a>
+      <a href="visit.html">Visit Us</a>
+    </nav>
+    <a class="btn btn--champagne mobile-menu__cta" href="contact.html">Book an Appointment ↗</a>
+    <div class="mobile-menu__foot">
+      <a href="tel:+919899501107">9899501107</a>
+      <a href="https://www.instagram.com/shivagemsandjewels/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================= COLLECTION HERO ============================= -->
+    <section class="collection-hero">
+      <div class="container">
+        <p id="categoryEyebrow" class="eyebrow reveal">Featured</p>
+        <h1 id="categoryHeading" class="display-1 reveal reveal-delay-1">Selected Pieces</h1>
+        <p id="categoryDescription" class="lede reveal reveal-delay-2">Handpicked pieces that embody our philosophy of presence, proportion and enduring beauty.</p>
+      </div>
+    </section>
+
+    <!-- ============================= PRODUCT GRID ============================= -->
+    <section class="section">
+      <div class="container">
+        <!-- Populated automatically from js/products.js — see renderProductGrid("featured") -->
+        <div class="product-grid" data-product-grid="featured"></div>
+      </div>
+    </section>
+
+    <!-- ============================= ENQUIRE SECTION ============================= -->
+    <section class="section section--dark appointment">
+      <div class="container">
+        <p class="eyebrow reveal">Private Appointment</p>
+        <h2 class="display-2 reveal reveal-delay-1">Let us find<br>the right piece.</h2>
+        <p class="lede reveal reveal-delay-2" style="margin-top:18px;">Tell us what you are looking for and our team will curate a private selection for you.</p>
+        <div class="btn-row reveal reveal-delay-3" style="margin-top:34px;">
+          <a class="btn btn--dark" href="contact.html">Book an Appointment ↗</a>
+          <a class="btn btn--champagne" id="categoryWhatsapp" data-whatsapp="a featured piece" href="#">Enquire on WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-head">Shiva Gems &amp; Jewels</h4>
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="craftsmanship.html">Craft</a></li>
+            <li><a href="journal.html">Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-head">Explore</h4>
+          <ul class="footer-list">
+            <li><a href="diamonds.html">Diamonds</a></li>
+            <li><a href="gold.html">Gold</a></li>
+            <li><a href="polki.html">Polki</a></li>
+            <li><a href="bridal.html">Bridal</a></li>
+            <li><a href="bespoke.html">Bespoke</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-head">Connect</h4>
+          <ul class="footer-list">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+            <li><a href="https://www.instagram.com/shivagemsandjewels/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </div>
+        <div id="contactDetails"></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Shiva Gems &amp; Jewels. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================= SCRIPTS ============================= -->
+  <script src="js/products.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/enquiry.js"></script>
+
+  <!-- Render featured products and apply settings -->
+  <script>
+    renderProductGrid("[data-product-grid]", "featured");
+    applyShivaContactSettings();
+    if (typeof refreshShivaEnquiryLinks === "function") refreshShivaEnquiryLinks();
+  </script>
+</body>
+</html>

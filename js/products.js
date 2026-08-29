@@ -56,60 +56,43 @@ function formatShivaPrice(product) {
 
 /* -------------------------------------------------------------------------
    Renders a grid of product cards into a container element.
-   Separates featured products into their own section.
    Usage: renderProductGrid("#productGrid", "diamonds")
    Pass category = "all" to show every product regardless of category.
+   Pass category = "featured" to show all products marked as featured.
    ------------------------------------------------------------------------- */
 function renderProductGrid(containerSelector, category) {
   const container = document.querySelector(containerSelector);
   if (!container) return Promise.resolve();
 
   return loadShivaData().then(() => {
-    const allItems = (category === "all"
-      ? SHIVA_PRODUCTS
-      : SHIVA_PRODUCTS.filter((p) => p.category === category)
-    ).filter((p) => p.available !== false);
+    let items = SHIVA_PRODUCTS;
+    
+    // Filter by category or featured status
+    if (category === "featured") {
+      items = items.filter((p) => p.featured === true);
+    } else if (category !== "all") {
+      items = items.filter((p) => p.category === category);
+    }
+    
+    items = items.filter((p) => p.available !== false);
 
-    if (allItems.length === 0) {
+    if (items.length === 0) {
       container.innerHTML = '<p class="product-empty">More pieces from this collection are on their way. Please enquire for current availability.</p>';
       return;
     }
 
     const prefix = location.pathname.includes("/product/") ? "../" : "";
-    
-    // Separate featured and regular products
-    const featured = allItems.filter((p) => p.featured === true);
-    const regular = allItems.filter((p) => p.featured !== true);
-
-    // Helper to render product card
-    function renderCard(p) {
-      return `
-        <a class="product-card reveal" href="${prefix}product-view.html?slug=${encodeURIComponent(p.id)}">
-          <div class="product-card__media ratio-4-5">
-            <span class="product-card__cat">${p.category}</span>
-            <img src="${prefix}${p.primaryImage}" alt="${p.name} — Shiva Gems and Jewels" loading="lazy" width="640" height="800">
-          </div>
-          <h3 class="product-card__name">${p.name}</h3>
-          <p class="product-card__desc">Details available on request.</p>
-          <span class="product-card__price">${formatShivaPrice(p)}</span>
-        </a>
-      `;
-    }
-
-    // Build HTML with featured section if products are featured
-    let html = "";
-    if (featured.length > 0) {
-      html += '<div class="featured-section"><h3 class="featured-section-title">Featured</h3><div class="product-grid">' 
-        + featured.map(renderCard).join("") 
-        + '</div></div>';
-    }
-    if (regular.length > 0) {
-      html += '<div class="regular-section"><div class="product-grid">' 
-        + regular.map(renderCard).join("") 
-        + '</div></div>';
-    }
-
-    container.innerHTML = html;
+    container.innerHTML = items.map((p) => `
+      <a class="product-card reveal" href="${prefix}product-view.html?slug=${encodeURIComponent(p.id)}">
+        <div class="product-card__media ratio-4-5">
+          <span class="product-card__cat">${p.category}</span>
+          <img src="${prefix}${p.primaryImage}" alt="${p.name} — Shiva Gems and Jewels" loading="lazy" width="640" height="800">
+        </div>
+        <h3 class="product-card__name">${p.name}</h3>
+        <p class="product-card__desc">Details available on request.</p>
+        <span class="product-card__price">${formatShivaPrice(p)}</span>
+      </a>
+    `).join("");
 
     if (typeof window.refreshRevealObserver === "function") {
       window.refreshRevealObserver();
@@ -119,26 +102,50 @@ function renderProductGrid(containerSelector, category) {
 
 /* -------------------------------------------------------------------------
    Renders the three-collection preview strip (used on the homepage).
-   Automatically includes any new categories created in the CMS.
+   Includes Featured collection + any new categories created in the CMS.
    ------------------------------------------------------------------------- */
 function renderFeaturedCollections() {
   const container = document.querySelector("[data-featured-collections]");
   if (!container) return Promise.resolve();
 
   return loadShivaData().then(() => {
-    const cats = SHIVA_CATEGORIES.length
-      ? SHIVA_CATEGORIES
-      : [{ name: "Diamonds", slug: "diamonds" }, { name: "Gold", slug: "gold" }, { name: "Polki", slug: "polki" }];
+    // Always include Featured first, then the core/custom categories
+    const cats = [
+      { name: "Featured", slug: "featured", isFeatured: true }
+    ];
+    
+    if (SHIVA_CATEGORIES.length) {
+      cats.push(...SHIVA_CATEGORIES);
+    } else {
+      cats.push(
+        { name: "Diamonds", slug: "diamonds" },
+        { name: "Gold", slug: "gold" },
+        { name: "Polki", slug: "polki" }
+      );
+    }
 
     container.innerHTML = cats.map((c, i) => {
-      const item = SHIVA_PRODUCTS.find((p) => p.category === c.slug);
-      const img = item ? item.primaryImage : c.heroImage || "";
-      // Existing three core categories keep their original dedicated pages
-      // (diamonds.html/gold.html/polki.html) so nothing about their design
-      // changes. Any newly created category automatically uses the new
-      // dynamic collection.html template instead.
-      const coreHrefs = { diamonds: "diamonds.html", gold: "gold.html", polki: "polki.html" };
-      const href = coreHrefs[c.slug] || `collection.html?category=${encodeURIComponent(c.slug)}`;
+      // Get representative image
+      let img = "";
+      if (c.isFeatured) {
+        // For Featured collection, show the first featured product's image
+        const featuredProduct = SHIVA_PRODUCTS.find((p) => p.featured === true);
+        img = featuredProduct ? featuredProduct.primaryImage : "";
+      } else {
+        const item = SHIVA_PRODUCTS.find((p) => p.category === c.slug);
+        img = item ? item.primaryImage : c.heroImage || "";
+      }
+      
+      // Determine the link
+      let href;
+      if (c.isFeatured) {
+        href = "featured.html";
+      } else {
+        // Existing three core categories keep their original dedicated pages
+        const coreHrefs = { diamonds: "diamonds.html", gold: "gold.html", polki: "polki.html" };
+        href = coreHrefs[c.slug] || `collection.html?category=${encodeURIComponent(c.slug)}`;
+      }
+      
       return `
         <a class="collection-card reveal" href="${href}">
           <div class="collection-card__media">
