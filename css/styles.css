@@ -405,6 +405,9 @@ h1, h2, h3, h4{
   color: var(--ivory);
   transition: color var(--dur-fast) var(--ease-luxury);
 }
+.site-header__inner > div:last-child{
+  margin-left: auto;
+}
 .page-header-dark .site-header:not(.is-scrolled) .site-header__inner{ color: var(--ivory); }
 .page-header-light .site-header:not(.is-scrolled) .site-header__inner{ color: var(--ink); }
 
