@@ -47,6 +47,10 @@ html.admin-dark body {
   background: var(--admin-cream);
 }
 
+body.admin-dark #nc-root {
+  color-scheme: dark;
+}
+
 .admin-theme-toggle {
   position: fixed;
   right: 18px;
@@ -88,6 +92,48 @@ body.admin-dark #nc-root input,
 body.admin-dark #nc-root textarea,
 body.admin-dark #nc-root select {
   background-color: var(--admin-paper);
+}
+
+body.admin-dark #nc-root button,
+body.admin-dark #nc-root a,
+body.admin-dark #nc-root [role="button"],
+body.admin-dark #nc-root [class*="Card"],
+body.admin-dark #nc-root [class*="card"],
+body.admin-dark #nc-root [class*="Item"],
+body.admin-dark #nc-root [class*="item"],
+body.admin-dark #nc-root [class*="Control"],
+body.admin-dark #nc-root [class*="control"],
+body.admin-dark #nc-root [class*="Toolbar"],
+body.admin-dark #nc-root [class*="toolbar"] {
+  color: var(--admin-ink);
+  background-color: var(--admin-paper);
+  border-color: var(--admin-line);
+}
+
+body.admin-dark #nc-root button:hover,
+body.admin-dark #nc-root a:hover,
+body.admin-dark #nc-root [role="button"]:hover,
+body.admin-dark #nc-root [class*="Item"]:hover,
+body.admin-dark #nc-root [class*="item"]:hover,
+body.admin-dark #nc-root [class*="Control"]:hover,
+body.admin-dark #nc-root [class*="control"]:hover {
+  color: #fffaf2;
+  background-color: #3a342b;
+}
+
+body.admin-dark #nc-root button:active,
+body.admin-dark #nc-root a:active,
+body.admin-dark #nc-root [role="button"][aria-selected="true"],
+body.admin-dark #nc-root [aria-current="true"] {
+  color: #fffaf2;
+  background-color: #4b4031;
+}
+
+body.admin-dark #nc-root label,
+body.admin-dark #nc-root p,
+body.admin-dark #nc-root span,
+body.admin-dark #nc-root svg {
+  color: var(--admin-ink);
 }
 
 body.admin-dark #nc-root input::placeholder,
