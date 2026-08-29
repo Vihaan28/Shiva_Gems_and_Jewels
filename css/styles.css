@@ -673,8 +673,8 @@ body.menu-open{ overflow: hidden; }
    ========================================================================= */
 .collections-grid{
   display: grid;
-  gap: 2px;
-  background: var(--border-light);
+  gap: 20px;
+  padding: 12px;
 }
 @media (min-width: 860px){
   .collections-grid{ grid-template-columns: repeat(3, 1fr); }
@@ -685,6 +685,7 @@ body.menu-open{ overflow: hidden; }
   overflow: hidden;
   display: block;
   aspect-ratio: 3 / 4;
+  border-radius: 12px;
 }
 .collection-card__media{
   position: absolute; inset: 0;

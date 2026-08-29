@@ -102,6 +102,7 @@ function renderProductGrid(containerSelector, category) {
 
 /* -------------------------------------------------------------------------
    Renders the three-collection preview strip (used on the homepage).
+   Shows only the first 3 collections; users can view all at collections.html
    Includes Featured collection + any new categories created in the CMS.
    ------------------------------------------------------------------------- */
 function renderFeaturedCollections() {
@@ -110,7 +111,7 @@ function renderFeaturedCollections() {
 
   return loadShivaData().then(() => {
     // Always include Featured first, then the core/custom categories
-    const cats = [
+    let cats = [
       { name: "Featured", slug: "featured", isFeatured: true }
     ];
     
@@ -123,6 +124,9 @@ function renderFeaturedCollections() {
         { name: "Polki", slug: "polki" }
       );
     }
+
+    // Limit to 3 collections on homepage
+    cats = cats.slice(0, 3);
 
     container.innerHTML = cats.map((c, i) => {
       // Get representative image
