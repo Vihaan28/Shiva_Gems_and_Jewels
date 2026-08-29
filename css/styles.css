@@ -390,7 +390,7 @@ h1, h2, h3, h4{
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-10px) scale(0.94);
+  transform: translateX(-50%) translateY(-10px) scale(0.94);
 }
 .site-header.is-scrolled .site-header__inner,
 .site-header.is-scrolled .nav-link,
@@ -447,6 +447,9 @@ h1, h2, h3, h4{
 }
 @media (min-width: 960px){
   .nav-desktop{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 40px;
