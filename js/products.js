@@ -16,6 +16,7 @@
 let SHIVA_PRODUCTS = [];
 let SHIVA_CATEGORIES = [];
 let SHIVA_DATA_READY = null;
+const FEATURED_TILE_IMAGE = "assets/placeholders/featured collections verticle placeholder.png";
 
 function loadShivaData() {
   if (SHIVA_DATA_READY) return SHIVA_DATA_READY;
@@ -134,9 +135,7 @@ function renderFeaturedCollections() {
       // Get representative image
       let img = "";
       if (c.isFeatured) {
-        // For Featured collection, show the first featured product's image
-        const featuredProduct = SHIVA_PRODUCTS.find((p) => p.featured === true);
-        img = featuredProduct ? featuredProduct.primaryImage : "";
+        img = FEATURED_TILE_IMAGE;
       } else {
         const item = SHIVA_PRODUCTS.find((p) => p.category === c.slug);
         img = c.heroImage || (item ? item.primaryImage : "");
