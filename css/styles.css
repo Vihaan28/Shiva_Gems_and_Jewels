@@ -943,6 +943,19 @@ body.menu-open{ overflow: hidden; }
   gap: 20px;
   margin-bottom: 48px;
 }
+.featured-section,
+.regular-section{
+  margin-bottom: 48px;
+}
+.featured-section-title{
+  font-size: 1.1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-grey);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
 .product-grid{
   display: grid;
   gap: 40px 28px;

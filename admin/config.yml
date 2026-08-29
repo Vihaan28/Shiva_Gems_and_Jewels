@@ -29,6 +29,8 @@ collections:
     identifier_field: name
     summary: "{{name}} — {{category}}"
     sortable_fields: ["displayOrder", "name", "category"]
+    editor:
+      preview: false
     view_filters:
       - label: "Published"
         field: published
@@ -62,9 +64,7 @@ collections:
       - { label: "Price (leave blank for Price on Request)", name: "price", widget: "string", required: false, hint: "Enter numbers only, e.g. 450000 — the website adds ₹ and commas automatically." }
       - { label: "Primary Image", name: "primaryImage", widget: "image" }
       - { label: "Additional Images", name: "additionalImages", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
-      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
-      - { label: "Show on Homepage", name: "showOnHomepage", widget: "boolean", default: false }
-      - { label: "Bridal Product", name: "bridal", widget: "boolean", default: false }
+      - { label: "Featured Product (shows in a separate Featured section within the collection)", name: "featured", widget: "boolean", default: false }
       - { label: "Available", name: "available", widget: "boolean", default: true }
       - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
       - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
@@ -80,6 +80,8 @@ collections:
     slug: "{{fields.slug}}"
     identifier_field: name
     sortable_fields: ["displayOrder", "name"]
+    editor:
+      preview: false
     fields:
       - { label: "Category Name", name: "name", widget: "string" }
       - { label: "Slug (web address — lowercase, no spaces, e.g. jadau)", name: "slug", widget: "string" }

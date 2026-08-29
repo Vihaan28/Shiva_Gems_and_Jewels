@@ -56,6 +56,7 @@ function formatShivaPrice(product) {
 
 /* -------------------------------------------------------------------------
    Renders a grid of product cards into a container element.
+   Separates featured products into their own section.
    Usage: renderProductGrid("#productGrid", "diamonds")
    Pass category = "all" to show every product regardless of category.
    ------------------------------------------------------------------------- */
@@ -64,28 +65,51 @@ function renderProductGrid(containerSelector, category) {
   if (!container) return Promise.resolve();
 
   return loadShivaData().then(() => {
-    const items = (category === "all"
+    const allItems = (category === "all"
       ? SHIVA_PRODUCTS
       : SHIVA_PRODUCTS.filter((p) => p.category === category)
     ).filter((p) => p.available !== false);
 
-    if (items.length === 0) {
+    if (allItems.length === 0) {
       container.innerHTML = '<p class="product-empty">More pieces from this collection are on their way. Please enquire for current availability.</p>';
       return;
     }
 
     const prefix = location.pathname.includes("/product/") ? "../" : "";
-    container.innerHTML = items.map((p) => `
-      <a class="product-card reveal" href="${prefix}product-view.html?slug=${encodeURIComponent(p.id)}">
-        <div class="product-card__media ratio-4-5">
-          <span class="product-card__cat">${p.category}</span>
-          <img src="${prefix}${p.primaryImage}" alt="${p.name} — Shiva Gems and Jewels" loading="lazy" width="640" height="800">
-        </div>
-        <h3 class="product-card__name">${p.name}</h3>
-        <p class="product-card__desc">Details available on request.</p>
-        <span class="product-card__price">${formatShivaPrice(p)}</span>
-      </a>
-    `).join("");
+    
+    // Separate featured and regular products
+    const featured = allItems.filter((p) => p.featured === true);
+    const regular = allItems.filter((p) => p.featured !== true);
+
+    // Helper to render product card
+    function renderCard(p) {
+      return `
+        <a class="product-card reveal" href="${prefix}product-view.html?slug=${encodeURIComponent(p.id)}">
+          <div class="product-card__media ratio-4-5">
+            <span class="product-card__cat">${p.category}</span>
+            <img src="${prefix}${p.primaryImage}" alt="${p.name} — Shiva Gems and Jewels" loading="lazy" width="640" height="800">
+          </div>
+          <h3 class="product-card__name">${p.name}</h3>
+          <p class="product-card__desc">Details available on request.</p>
+          <span class="product-card__price">${formatShivaPrice(p)}</span>
+        </a>
+      `;
+    }
+
+    // Build HTML with featured section if products are featured
+    let html = "";
+    if (featured.length > 0) {
+      html += '<div class="featured-section"><h3 class="featured-section-title">Featured</h3><div class="product-grid">' 
+        + featured.map(renderCard).join("") 
+        + '</div></div>';
+    }
+    if (regular.length > 0) {
+      html += '<div class="regular-section"><div class="product-grid">' 
+        + regular.map(renderCard).join("") 
+        + '</div></div>';
+    }
+
+    container.innerHTML = html;
 
     if (typeof window.refreshRevealObserver === "function") {
       window.refreshRevealObserver();
