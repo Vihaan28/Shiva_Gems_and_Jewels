@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Style Note",
+    "slug": "style",
+    "displayOrder": 1,
+    "published": true
+  },
+  {
+    "name": "The Details",
+    "slug": "details",
+    "displayOrder": 2,
+    "published": true
+  },
+  {
+    "name": "Polki",
+    "slug": "polki",
+    "displayOrder": 3,
+    "published": true
+  }
+]

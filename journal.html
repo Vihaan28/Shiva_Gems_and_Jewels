@@ -79,56 +79,8 @@
 
     <section class="section section--ivory">
       <div class="container">
-        <!-- =========================================================
-             JOURNAL FILTERS
-             Add a new category by duplicating a button below and
-             giving matching article cards the same data-category value.
-             ========================================================= -->
-        <div class="journal-filters">
-          <button class="journal-filter is-active" data-filter="all">All</button>
-          <button class="journal-filter" data-filter="style">Style Note</button>
-          <button class="journal-filter" data-filter="details">The Details</button>
-          <button class="journal-filter" data-filter="polki">Polki</button>
-        </div>
-
-        <!-- =========================================================
-             ADD JOURNAL ARTICLES HERE
-             Copy one <a class="journal-card"> block to add another
-             article. Set data-category to match one of the filters
-             above. Do not invent factual claims — keep copy editorial.
-             ========================================================= -->
-        <div class="journal-grid">
-          <a class="journal-card reveal" data-category="style" href="#">
-            <span class="journal-card__tag">Style Note</span>
-            <h3 class="journal-card__title">How to build a jewellery wardrobe that lasts.</h3>
-            <p class="journal-card__excerpt">A short guide to choosing pieces that earn their place, season after season, rather than pieces that simply follow a trend.</p>
-          </a>
-          <a class="journal-card reveal reveal-delay-1" data-category="details" href="#">
-            <span class="journal-card__tag">The Details</span>
-            <h3 class="journal-card__title">Why gold keeps coming back.</h3>
-            <p class="journal-card__excerpt">On the enduring appeal of gold, and why it remains a constant across generations of Indian jewellery.</p>
-          </a>
-          <a class="journal-card reveal reveal-delay-2" data-category="polki" href="#">
-            <span class="journal-card__tag">Polki</span>
-            <h3 class="journal-card__title">Old-world character, reimagined.</h3>
-            <p class="journal-card__excerpt">A closer look at polki — its history, its character, and how it sits within a contemporary wardrobe.</p>
-          </a>
-          <a class="journal-card reveal" data-category="style" href="#">
-            <span class="journal-card__tag">Style Note</span>
-            <h3 class="journal-card__title">Layering jewellery without losing restraint.</h3>
-            <p class="journal-card__excerpt">A note on building a look with several pieces at once, while keeping the overall effect considered.</p>
-          </a>
-          <a class="journal-card reveal reveal-delay-1" data-category="details" href="#">
-            <span class="journal-card__tag">The Details</span>
-            <h3 class="journal-card__title">Reading a diamond beyond the sparkle.</h3>
-            <p class="journal-card__excerpt">What proportion, setting and clarity actually mean when you're looking at a piece in person.</p>
-          </a>
-          <a class="journal-card reveal reveal-delay-2" data-category="polki" href="#">
-            <span class="journal-card__tag">Polki</span>
-            <h3 class="journal-card__title">Pairing polki with modern silhouettes.</h3>
-            <p class="journal-card__excerpt">On bringing an uncut-diamond piece into a wardrobe that otherwise leans contemporary.</p>
-          </a>
-        </div>
+        <div class="journal-filters" data-journal-filters></div>
+        <div class="journal-grid" data-journal-grid></div>
       </div>
     </section>
 
@@ -182,6 +134,7 @@
   <script src="js/products.js" defer></script>
     <script src="js/navigation.js" defer></script>
     <script src="js/animations.js" defer></script>
+      <script src="js/journal.js" defer></script>
     <script src="js/filters.js" defer></script>
     <script src="js/enquiry.js" defer></script>
     <script src="js/main.js" defer></script>

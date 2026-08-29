@@ -1,0 +1,56 @@
+[
+  {
+    "title": "How to build a jewellery wardrobe that lasts.",
+    "slug": "jewellery-wardrobe",
+    "category": "style",
+    "excerpt": "A short guide to choosing pieces that earn their place, season after season, rather than pieces that simply follow a trend.",
+    "body": "A considered jewellery wardrobe begins with pieces that feel personal and continue to work over time.",
+    "displayOrder": 1,
+    "published": true
+  },
+  {
+    "title": "Why gold keeps coming back.",
+    "slug": "gold-keeps-coming-back",
+    "category": "details",
+    "excerpt": "On the enduring appeal of gold, and why it remains a constant across generations of Indian jewellery.",
+    "body": "Gold carries memory easily. Its warmth and permanence allow it to move naturally between generations.",
+    "displayOrder": 2,
+    "published": true
+  },
+  {
+    "title": "Old-world character, reimagined.",
+    "slug": "polki-reimagined",
+    "category": "polki",
+    "excerpt": "A closer look at polki — its history, its character, and how it sits within a contemporary wardrobe.",
+    "body": "Polki keeps the irregular beauty of an uncut diamond while finding a place in modern dressing.",
+    "displayOrder": 3,
+    "published": true
+  },
+  {
+    "title": "Layering jewellery without losing restraint.",
+    "slug": "layering-with-restraint",
+    "category": "style",
+    "excerpt": "A note on building a look with several pieces at once, while keeping the overall effect considered.",
+    "body": "Layering works best when each piece has room to be noticed and the whole remains balanced.",
+    "displayOrder": 4,
+    "published": true
+  },
+  {
+    "title": "Reading a diamond beyond the sparkle.",
+    "slug": "reading-a-diamond",
+    "category": "details",
+    "excerpt": "What proportion, setting and clarity actually mean when you are looking at a piece in person.",
+    "body": "Proportion, setting and clarity each shape how a diamond feels when seen in person.",
+    "displayOrder": 5,
+    "published": true
+  },
+  {
+    "title": "Pairing polki with modern silhouettes.",
+    "slug": "polki-modern-silhouettes",
+    "category": "polki",
+    "excerpt": "On bringing an uncut-diamond piece into a wardrobe that otherwise leans contemporary.",
+    "body": "The contrast between polki and a clean modern silhouette gives both elements room to speak.",
+    "displayOrder": 6,
+    "published": true
+  }
+]

@@ -119,6 +119,23 @@ function build() {
     JSON.stringify(categories, null, 2)
   );
 
+  // ---- Journal ----
+  const journalCategories = readCollection("journal-categories")
+    .filter((c) => c.published !== false)
+    .sort((a, b) => (a.displayOrder || 999) - (b.displayOrder || 999));
+  fs.writeFileSync(
+    path.join(DATA_DIR, "journal-categories.json"),
+    JSON.stringify(journalCategories, null, 2)
+  );
+
+  const journal = readCollection("journal")
+    .filter((entry) => entry.published !== false)
+    .sort((a, b) => (a.displayOrder || 999) - (b.displayOrder || 999));
+  fs.writeFileSync(
+    path.join(DATA_DIR, "journal.json"),
+    JSON.stringify(journal, null, 2)
+  );
+
   // ---- Settings (contact + homepage merged into one file) ----
   const settings = {
     contact: readSettingsFile("contact.yml"),
@@ -130,7 +147,7 @@ function build() {
   );
 
   console.log(
-    `Built data: ${products.length} products, ${categories.length} categories, settings.json`
+    `Built data: ${products.length} products, ${categories.length} categories, ${journal.length} journal entries, settings.json`
   );
 }
 

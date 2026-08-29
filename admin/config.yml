@@ -106,6 +106,65 @@ collections:
       - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
 
   # ===========================================================
+  # JOURNAL CATEGORIES
+  # ===========================================================
+  - name: "journal_categories"
+    label: "Journal Categories"
+    label_singular: "Journal Category"
+    folder: "content/journal-categories"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: name
+    sortable_fields: ["displayOrder", "name"]
+    editor:
+      preview: false
+    fields:
+      - { label: "Category Name", name: "name", widget: "string" }
+      - { label: "Slug (lowercase, no spaces)", name: "slug", widget: "string" }
+      - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
+      - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
+
+  # ===========================================================
+  # JOURNAL ENTRIES
+  # ===========================================================
+  - name: "journal"
+    label: "Journal Entries"
+    label_singular: "Journal Entry"
+    folder: "content/journal"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{category}}"
+    sortable_fields: ["displayOrder", "title", "category"]
+    editor:
+      preview: false
+    view_filters:
+      - label: "Published"
+        field: published
+        pattern: true
+      - label: "Hidden"
+        field: published
+        pattern: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (lowercase, no spaces)", name: "slug", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "journal_categories"
+        search_fields: ["name"]
+        value_field: "slug"
+        display_fields: ["name"]
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Article Body", name: "body", widget: "markdown", required: false }
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
+      - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
+
+  # ===========================================================
   # SETTINGS (single-instance files, not repeatable lists)
   # ===========================================================
   - name: "settings"
