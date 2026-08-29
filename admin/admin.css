@@ -6,9 +6,9 @@
   --admin-line: #e4ddd2;
   --admin-champagne: #b28b55;
   --admin-focus: rgba(178, 139, 85, 0.2);
-  --admin-radius: 8px;
 }
 
+html.admin-dark,
 body.admin-dark {
   --admin-ink: #f5f1e9;
   --admin-muted: #b8afa3;
@@ -19,9 +19,13 @@ body.admin-dark {
 }
 
 html,
-body,
-#nc-root {
+body {
+  height: 100%;
   min-height: 100%;
+}
+
+#nc-root {
+  min-height: 100vh;
 }
 
 body {
@@ -33,201 +37,82 @@ body {
   transition: background 220ms ease, color 220ms ease;
 }
 
+html.admin-dark,
+html.admin-dark body {
+  background: var(--admin-cream);
+}
+
 #nc-root {
-  background:
-    radial-gradient(circle at 92% 0%, rgba(178, 139, 85, 0.12), transparent 28rem),
-    var(--admin-cream);
+  min-height: 100vh;
+  background: var(--admin-cream);
 }
 
-  .admin-theme-toggle {
-    position: fixed;
-    top: 14px;
-    right: 18px;
-    z-index: 10000;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    min-height: 34px;
-    padding: 0 12px;
-    color: var(--admin-ink);
-    background: var(--admin-paper);
-    border: 1px solid var(--admin-line);
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(36, 33, 29, 0.1);
-    cursor: pointer;
-    font: 600 11px/1 "Manrope", sans-serif;
-    letter-spacing: 0.04em;
-    transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 160ms ease;
-  }
-
-  .admin-theme-toggle:hover {
-    transform: translateY(-1px);
-  }
-
-  .admin-theme-toggle span:first-child {
-    color: var(--admin-champagne);
-    font-size: 17px;
-  }
-
-  body.admin-dark #nc-root,
-  body.admin-dark #nc-root [class*="AppHeader"],
-  body.admin-dark #nc-root [class*="appHeader"],
-  body.admin-dark #nc-root [class*="Sidebar"],
-  body.admin-dark #nc-root [class*="sidebar"],
-  body.admin-dark #nc-root [class*="EntryListing"],
-  body.admin-dark #nc-root [class*="entryListing"],
-  body.admin-dark #nc-root [class*="CollectionPage"],
-  body.admin-dark #nc-root [class*="collectionPage"] {
-    color: var(--admin-ink);
-    background-color: var(--admin-cream);
-    border-color: var(--admin-line);
-  }
-
-  body.admin-dark #nc-root [class*="Card"],
-  body.admin-dark #nc-root [class*="card"],
-  body.admin-dark #nc-root input,
-  body.admin-dark #nc-root textarea,
-  body.admin-dark #nc-root select {
-    color: var(--admin-ink);
-    background-color: var(--admin-paper);
-    border-color: var(--admin-line);
-  }
-
-  body.admin-dark #nc-root input::placeholder,
-  body.admin-dark #nc-root textarea::placeholder {
-    color: var(--admin-muted);
-  }
-
-  body.admin-dark #nc-root [class*="CollectionLabel"],
-  body.admin-dark #nc-root [class*="collectionLabel"] {
-    color: var(--admin-muted);
-  }
-
-  body.admin-dark #nc-root svg {
-    color: currentColor;
-  }
-
-/* Keep Decap's existing structure and controls, but give the workspace air. */
-#nc-root .nc-app-container,
-#nc-root [class*="AppHeader"],
-#nc-root [class*="app-container"] {
-  font-family: "Manrope", sans-serif;
-}
-
-#nc-root [class*="AppHeader"],
-#nc-root [class*="appHeader"] {
-  min-height: 68px;
-  background: var(--admin-paper);
-  border-bottom: 1px solid var(--admin-line);
-  box-shadow: 0 4px 20px rgba(36, 33, 29, 0.05);
-}
-
-#nc-root [class*="Sidebar"],
-#nc-root [class*="sidebar"] {
-  background: rgba(255, 253, 249, 0.86);
-  border-right: 1px solid var(--admin-line);
-}
-
-#nc-root [class*="CollectionLabel"],
-#nc-root [class*="collectionLabel"] {
-  color: var(--admin-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-#nc-root [class*="CollectionLabel"] svg,
-#nc-root [class*="collectionLabel"] svg {
-  color: var(--admin-champagne);
-}
-
-#nc-root [class*="EntryListing"],
-#nc-root [class*="entryListing"],
-#nc-root [class*="CollectionPage"],
-#nc-root [class*="collectionPage"] {
-  background: transparent;
-}
-
-#nc-root [class*="Card"],
-#nc-root [class*="card"] {
-  border-color: var(--admin-line);
-  border-radius: var(--admin-radius);
-  box-shadow: 0 8px 24px rgba(36, 33, 29, 0.05);
-}
-
-#nc-root input,
-#nc-root textarea,
-#nc-root select {
+.admin-theme-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 16px;
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 12px;
   color: var(--admin-ink);
   background: var(--admin-paper);
   border: 1px solid var(--admin-line);
-  border-radius: 6px;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(36, 33, 29, 0.12);
+  cursor: pointer;
+  font: 600 11px/1 "Manrope", sans-serif;
+  letter-spacing: 0.04em;
+  transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 160ms ease;
+}
+
+.admin-theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.admin-theme-toggle span:first-child {
+  color: var(--admin-champagne);
+  font-size: 17px;
+}
+
+body.admin-dark #nc-root input,
+body.admin-dark #nc-root textarea,
+body.admin-dark #nc-root select {
+  background-color: var(--admin-cream);
+  border-color: var(--admin-line);
+}
+
+body.admin-dark #nc-root input,
+body.admin-dark #nc-root textarea,
+body.admin-dark #nc-root select {
+  background-color: var(--admin-paper);
+}
+
+body.admin-dark #nc-root input::placeholder,
+body.admin-dark #nc-root textarea::placeholder {
+  color: var(--admin-muted);
 }
 
 #nc-root input:focus,
 #nc-root textarea:focus,
 #nc-root select:focus {
   border-color: var(--admin-champagne);
-  background: #fff;
   box-shadow: 0 0 0 3px var(--admin-focus);
   outline: none;
 }
 
-#nc-root textarea {
-  line-height: 1.6;
-}
-
-#nc-root button {
-  border-radius: 6px;
-  font-family: "Manrope", sans-serif;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
-
-#nc-root button:hover {
-  box-shadow: 0 4px 12px rgba(36, 33, 29, 0.1);
-}
-
-#nc-root button:focus-visible,
-#nc-root a:focus-visible {
-  outline: 3px solid var(--admin-focus);
-  outline-offset: 2px;
-}
-
-#nc-root [class*="Toolbar"],
-#nc-root [class*="toolbar"] {
-  border-bottom-color: var(--admin-line);
-}
-
-#nc-root h1,
-#nc-root h2,
-#nc-root h3,
-#nc-root [class*="Heading"] {
-  color: var(--admin-ink);
-  letter-spacing: 0;
-}
-
 @media (max-width: 700px) {
-  #nc-root [class*="Sidebar"],
-  #nc-root [class*="sidebar"] {
-    border-right: 0;
-    border-bottom: 1px solid var(--admin-line);
-  }
-
-  #nc-root input,
-  #nc-root textarea,
-  #nc-root select {
-    font-size: 16px;
+  .admin-theme-toggle {
+    right: 12px;
+    bottom: 12px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #nc-root *,
-  #nc-root *::before,
-  #nc-root *::after {
+  .admin-theme-toggle,
+  body {
     transition-duration: 0.01ms !important;
   }
 }

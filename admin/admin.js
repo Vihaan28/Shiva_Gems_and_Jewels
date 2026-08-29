@@ -8,6 +8,7 @@
   function setTheme(theme) {
     const dark = theme === "dark";
     document.body.classList.toggle("admin-dark", dark);
+    document.documentElement.classList.toggle("admin-dark", dark);
     toggle.setAttribute("aria-pressed", dark ? "true" : "false");
     toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
     if (label) label.textContent = dark ? "Light mode" : "Dark mode";
