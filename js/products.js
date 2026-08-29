@@ -125,8 +125,10 @@ function renderFeaturedCollections() {
       );
     }
 
-    // Limit to 3 collections on homepage
-    cats = cats.slice(0, 3);
+    // The homepage previews three; the collections page shows the full set.
+    if (container.dataset.featuredCollections !== "all") {
+      cats = cats.slice(0, 3);
+    }
 
     container.innerHTML = cats.map((c, i) => {
       // Get representative image
