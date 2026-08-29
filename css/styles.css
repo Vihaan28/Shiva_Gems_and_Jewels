@@ -711,7 +711,6 @@ body.menu-open{ overflow: hidden; }
 @media (min-width: 1024px){
   #collections{ padding-bottom: 80px; }
 }
-}
 .collection-card{
   position: relative;
   background: var(--ivory);

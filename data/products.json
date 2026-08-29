@@ -16,6 +16,21 @@
     "displayOrder": 1
   },
   {
+    "name": "diamond 3",
+    "id": "DIAMOND PEICE !@#$",
+    "category": "diamonds",
+    "description": "itm1",
+    "priceType": "fixed",
+    "price": "1000000",
+    "primaryImage": "/assets/uploads/img_3005.jpeg",
+    "featured": true,
+    "showOnHomepage": true,
+    "bridal": false,
+    "available": true,
+    "published": true,
+    "displayOrder": 1
+  },
+  {
     "id": "gold-001",
     "name": "Gold Piece 01",
     "category": "gold",
@@ -62,5 +77,35 @@
     "available": true,
     "published": true,
     "displayOrder": 2
+  },
+  {
+    "name": "Hdhs",
+    "id": "Bsbsb",
+    "category": "diamonds",
+    "description": "Bsbsb",
+    "priceType": "fixed",
+    "price": "1000",
+    "primaryImage": "/assets/uploads/img_3020.jpeg",
+    "featured": true,
+    "available": true,
+    "showOnHomepage": false,
+    "published": true,
+    "displayOrder": 99,
+    "bridal": false
+  },
+  {
+    "name": "Gdgs",
+    "id": "Gsgs",
+    "category": "gold",
+    "description": "Gdgdg",
+    "priceType": "fixed",
+    "price": "120000099",
+    "primaryImage": "/assets/uploads/img_3014.jpeg",
+    "featured": true,
+    "showOnHomepage": true,
+    "bridal": true,
+    "available": true,
+    "published": true,
+    "displayOrder": 0
   }
 ]

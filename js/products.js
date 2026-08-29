@@ -139,7 +139,7 @@ function renderFeaturedCollections() {
         img = featuredProduct ? featuredProduct.primaryImage : "";
       } else {
         const item = SHIVA_PRODUCTS.find((p) => p.category === c.slug);
-        img = item ? item.primaryImage : c.heroImage || "";
+        img = c.heroImage || (item ? item.primaryImage : "");
       }
       
       // Determine the link

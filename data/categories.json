@@ -2,8 +2,9 @@
   {
     "name": "Diamonds",
     "slug": "diamonds",
-    "description": "A growing edit of diamonds pieces. Every item is available to view by private appointment; details and pricing are shared on request.",
-    "heroImage": "assets/diamonds/diamond-feature-01.jpg",
+    "description": "A growing edit of diamonds pieces. Every item is available to view",
+    "heroImage": "/assets/uploads/img_3005.jpeg",
+    "pageHeroImage": "/assets/uploads/diamond-placeholder-horizontal.png",
     "displayOrder": 1,
     "published": true
   },
@@ -21,6 +22,15 @@
     "description": "A growing edit of polki pieces. Every item is available to view by private appointment; details and pricing are shared on request.",
     "heroImage": "assets/polki/polki-feature-01.jpg",
     "displayOrder": 3,
+    "published": true
+  },
+  {
+    "name": "try",
+    "slug": "emerald",
+    "description": "emerald-description",
+    "heroImage": "/assets/uploads/img_2997.jpeg",
+    "pageHeroImage": "/assets/uploads/img_3013.jpeg",
+    "displayOrder": 99,
     "published": true
   }
 ]
