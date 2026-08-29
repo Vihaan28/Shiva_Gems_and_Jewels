@@ -677,6 +677,15 @@ body.menu-open{ overflow: hidden; }
 }
 .page-hero .eyebrow{ color: var(--champagne); margin-bottom: 18px; }
 .page-hero h1{ color: var(--ivory); }
+.featured-page-hero{
+  min-height: 0;
+  aspect-ratio: 1270 / 682;
+  padding-top: 0;
+  background: #f5eadb;
+}
+.featured-page-hero .hero__media img{
+  object-fit: contain;
+}
 
 /* =========================================================================
    REVEAL UTILITIES  (see animations.css for keyframes / observer classes)
