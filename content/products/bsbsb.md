@@ -6,10 +6,10 @@ description: Bsbsb
 priceType: fixed
 price: "1000"
 primaryImage: /assets/uploads/img_3020.jpeg
-featured: false
-showOnHomepage: false
-bridal: false
+featured: true
 available: true
+showOnHomepage: false
 published: true
 displayOrder: 99
+bridal: false
 ---
