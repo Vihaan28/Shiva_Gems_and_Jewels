@@ -65,10 +65,6 @@ collections:
       - label: "Primary Image"
         name: "primaryImage"
         widget: "image"
-        media_library:
-          config:
-            multiple: false
-            allow_url: true
       - label: "Additional Images"
         name: "additionalImages"
         widget: "list"
@@ -76,10 +72,6 @@ collections:
           label: "Image"
           name: "image"
           widget: "image"
-          media_library:
-            config:
-              multiple: false
-              allow_url: true
         required: false
       - { label: "Featured Product (shows in a separate Featured section within the collection)", name: "featured", widget: "boolean", default: false }
       - { label: "Available", name: "available", widget: "boolean", default: true }
@@ -106,17 +98,9 @@ collections:
       - label: "Collection Card Image (vertical — for homepage and collections page)"
         name: "heroImage"
         widget: "image"
-        media_library:
-          config:
-            multiple: false
-            allow_url: true
       - label: "Category Page Hero Image (horizontal — for the category page header)"
         name: "pageHeroImage"
         widget: "image"
-        media_library:
-          config:
-            multiple: false
-            allow_url: true
         required: false
       - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
       - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
@@ -151,10 +135,6 @@ collections:
           - label: "Hero Image"
             name: "heroImage"
             widget: "image"
-            media_library:
-              config:
-                multiple: false
-                allow_url: true
           - { label: "Explore Collections Button Text", name: "ctaText", widget: "string" }
           - { label: "Story Section Eyebrow", name: "storyEyebrow", widget: "string" }
           - { label: "Story Section Heading (use | for a line break)", name: "storyHeading", widget: "string" }

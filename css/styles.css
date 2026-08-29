@@ -675,9 +675,17 @@ body.menu-open{ overflow: hidden; }
   display: grid;
   gap: 20px;
   padding: 12px;
+  margin-bottom: 0;
 }
 @media (min-width: 860px){
   .collections-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+#collections{
+  padding-bottom: 48px;
+}
+@media (min-width: 1024px){
+  #collections{ padding-bottom: 80px; }
+}
 }
 .collection-card{
   position: relative;
