@@ -5,42 +5,39 @@
 (function () {
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
+  const logo = document.querySelector(".site-logo");
   const body = document.body;
   let lastScrollY = 0;
-  let isScrollingDown = false;
 
   function onScroll() {
     if (!header) return;
-        const currentScrollY = window.scrollY;
-        const scrollDelta = currentScrollY - lastScrollY;
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
 
-        // Determine scroll direction
-        const nowScrollingDown = scrollDelta > 0;
-
-        // At top: show full navbar
-        if (currentScrollY < 24) {
-          header.classList.remove("is-scrolled", "is-collapsed");
-          isScrollingDown = false;
-        } else if (nowScrollingDown && !isScrollingDown) {
-          // Transitioned to scrolling down: collapse navbar
-          header.classList.add("is-collapsed");
-          isScrollingDown = true;
-        } else if (!nowScrollingDown && isScrollingDown) {
-          // Transitioned to scrolling up: show full navbar
-          header.classList.remove("is-collapsed");
-          header.classList.add("is-scrolled");
-          isScrollingDown = false;
-        }
-
-        lastScrollY = currentScrollY;
-    if (window.scrollY > 24) {
-      header.classList.add("is-scrolled");
-    } else {
+    if (currentScrollY <= 24) {
+      header.classList.remove("is-scrolled", "is-collapsed");
+    } else if (scrollingDown) {
       header.classList.remove("is-scrolled");
+      header.classList.add("is-collapsed");
+    } else if (currentScrollY < lastScrollY) {
+      header.classList.remove("is-collapsed");
+      header.classList.add("is-scrolled");
     }
+
+    lastScrollY = currentScrollY;
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // The compact logo restores the full navbar without navigating away.
+  if (logo) {
+    logo.addEventListener("click", (event) => {
+      if (!header.classList.contains("is-collapsed")) return;
+      event.preventDefault();
+      header.classList.remove("is-collapsed");
+      header.classList.add("is-scrolled");
+    });
+  }
 
   if (toggle) {
     toggle.addEventListener("click", function () {
