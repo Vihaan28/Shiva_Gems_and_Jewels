@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiva Gems and Jewels — Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../assets/logo/favicon.png">
+  <!-- Netlify Identity widget: lets employees log in -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Decap CMS (formerly Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    const ADMIN_PATH = "/admin/";
+
+    function redirectToAdminIfNeeded() {
+      const hash = window.location.hash || "";
+      const search = window.location.search || "";
+      const hasIdentityToken = /(invite_token|recovery_token|confirmation_token)/.test(hash + search);
+
+      if (hasIdentityToken && window.location.pathname !== "/admin/" && window.location.pathname !== "/admin") {
+        const redirectUrl = new URL(ADMIN_PATH, window.location.origin);
+        redirectUrl.search = search;
+        redirectUrl.hash = hash;
+        window.location.replace(redirectUrl.toString());
+      }
+    }
+
+    // Redirects employees straight back into /admin/ after they confirm
+    // an email invite/reset, instead of leaving them on a blank page.
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = ADMIN_PATH;
+          });
+        } else {
+          document.location.href = ADMIN_PATH;
+        }
+      });
+    }
+
+    redirectToAdminIfNeeded();
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# All new images an employee uploads through the CMS land here.
+# Existing photos in assets/diamonds, assets/gold, assets/polki etc.
+# are untouched and can still be picked via "Choose an image".
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: simple
+# Set this to the live site URL used by Netlify Identity emails.
+# Use the actual domain, such as https://www.shivagemsandjewels.com/admin
+# or https://your-site-name.netlify.app/admin.
+site_url: https://your-site-name.netlify.app/admin
+display_url: https://your-site-name.netlify.app/admin
+
+collections:
+
+  # ===========================================================
+  # PRODUCTS
+  # ===========================================================
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: name
+    summary: "{{name}} — {{category}}"
+    sortable_fields: ["displayOrder", "name", "category"]
+    view_filters:
+      - label: "Published"
+        field: published
+        pattern: true
+      - label: "Hidden"
+        field: published
+        pattern: false
+      - label: "Featured"
+        field: featured
+        pattern: true
+    fields:
+      - { label: "Product Name", name: "name", widget: "string" }
+      - { label: "Unique ID (no spaces, letters/numbers/dashes only)", name: "id", widget: "string", hint: "Used in the product's web address. Set once, then avoid changing it." }
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["name"]
+        value_field: "slug"
+        display_fields: ["name"]
+        hint: "Pick from categories created in the Categories section."
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Price Type"
+        name: "priceType"
+        widget: "select"
+        options:
+          - { label: "Price on Request", value: "on_request" }
+          - { label: "Fixed Price", value: "fixed" }
+          - { label: "Starting From", value: "starting_from" }
+        default: "on_request"
+      - { label: "Price (leave blank for Price on Request)", name: "price", widget: "string", required: false, hint: "Enter numbers only, e.g. 450000 — the website adds ₹ and commas automatically." }
+      - { label: "Primary Image", name: "primaryImage", widget: "image" }
+      - { label: "Additional Images", name: "additionalImages", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
+      - { label: "Show on Homepage", name: "showOnHomepage", widget: "boolean", default: false }
+      - { label: "Bridal Product", name: "bridal", widget: "boolean", default: false }
+      - { label: "Available", name: "available", widget: "boolean", default: true }
+      - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
+      - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
+
+  # ===========================================================
+  # CATEGORIES
+  # ===========================================================
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "content/categories"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: name
+    sortable_fields: ["displayOrder", "name"]
+    fields:
+      - { label: "Category Name", name: "name", widget: "string" }
+      - { label: "Slug (web address — lowercase, no spaces, e.g. jadau)", name: "slug", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
+      - { label: "Display Order (lower numbers show first)", name: "displayOrder", widget: "number", default: 99, value_type: "int" }
+      - { label: "Published (visible on website)", name: "published", widget: "boolean", default: true }
+
+  # ===========================================================
+  # SETTINGS (single-instance files, not repeatable lists)
+  # ===========================================================
+  - name: "settings"
+    label: "Site Settings"
+    editor:
+      preview: false
+    files:
+      - name: "contact"
+        label: "Contact Details"
+        file: "content/settings/contact.yml"
+        fields:
+          - { label: "Phone Number 1", name: "phone1", widget: "string" }
+          - { label: "Phone Number 2", name: "phone2", widget: "string" }
+          - { label: "Phone Number 3", name: "phone3", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "WhatsApp Number (digits only, country code, no + or spaces)", name: "whatsappNumber", widget: "string" }
+          - { label: "Showroom Address", name: "address", widget: "text" }
+
+      - name: "homepage"
+        label: "Homepage Content"
+        file: "content/settings/homepage.yml"
+        fields:
+          - { label: "Hero Eyebrow (small text above the headline)", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero Heading (use | for a line break)", name: "heroHeading", widget: "string" }
+          - { label: "Hero Description", name: "heroDescription", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Explore Collections Button Text", name: "ctaText", widget: "string" }
+          - { label: "Story Section Eyebrow", name: "storyEyebrow", widget: "string" }
+          - { label: "Story Section Heading (use | for a line break)", name: "storyHeading", widget: "string" }
+          - { label: "Story Section Text", name: "storyText", widget: "text" }

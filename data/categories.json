@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Diamonds",
+    "slug": "diamonds",
+    "description": "A growing edit of diamonds pieces. Every item is available to view by private appointment; details and pricing are shared on request.",
+    "heroImage": "assets/diamonds/diamond-feature-01.jpg",
+    "displayOrder": 1,
+    "published": true
+  },
+  {
+    "name": "Gold",
+    "slug": "gold",
+    "description": "A growing edit of gold pieces. Every item is available to view by private appointment; details and pricing are shared on request.",
+    "heroImage": "assets/gold/gold-feature-01.jpg",
+    "displayOrder": 2,
+    "published": true
+  },
+  {
+    "name": "Polki",
+    "slug": "polki",
+    "description": "A growing edit of polki pieces. Every item is available to view by private appointment; details and pricing are shared on request.",
+    "heroImage": "assets/polki/polki-feature-01.jpg",
+    "displayOrder": 3,
+    "published": true
+  }
+]

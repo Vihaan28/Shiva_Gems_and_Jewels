@@ -1,0 +1,9 @@
+{
+  "name": "shiva-gems-and-jewels",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shiva Gems and Jewels website — static frontend + Decap CMS content build.",
+  "scripts": {
+    "build": "node scripts/build-data.js"
+  }
+}

@@ -1,0 +1,74 @@
+/* =========================================================================
+   SHIVA GEMS AND JEWELS — RESPONSIVE OVERRIDES
+   -------------------------------------------------------------------------
+   Most layout in styles.css is already fluid (clamp(), CSS grid, flexbox).
+   This file holds breakpoint-specific refinements so mobile stays compact
+   and desktop uses the extra space well.
+   Tested at: 375 / 390 / 414 / 768 / 1024 / 1440 / 1920px.
+   ========================================================================= */
+
+/* ---------- Small phones (<=390px) ---------- */
+@media (max-width: 390px){
+  .hero__content, .page-hero__content{ padding-bottom: 56px; }
+  .btn{ padding: 15px 22px; font-size: 11px; }
+  .footer-grid{ gap: 36px; }
+  .display-1{ font-size: clamp(2.3rem, 9vw, 3rem); }
+}
+
+/* ---------- Phones (<=767px) ---------- */
+@media (max-width: 767px){
+  .section{ padding: 72px 0; }
+  .section-head{ margin-bottom: 40px; }
+  .btn-row{ flex-direction: column; align-items: flex-start; }
+  .btn-row .btn{ width: 100%; justify-content: center; }
+  .journal-grid{ gap: 32px; }
+  .footer-bottom{ flex-direction: column; align-items: flex-start; }
+  .stat-row{ grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .whatsapp-fab{ width: 48px; height: 48px; right: 16px; bottom: 16px; }
+
+  /* Hero: tighten vertical rhythm and reserve room so the button row
+     never collides with the "Scroll to Discover" cue below it. */
+  .hero .eyebrow{ margin-bottom: 14px; }
+  .hero h1{ margin-bottom: 16px; }
+  .hero .lede{ margin-bottom: 22px; }
+  .hero__content{ padding-bottom: 148px; }
+  .scroll-cue{ bottom: 20px; }
+  .scroll-cue__line{ height: 30px; }
+}
+
+/* ---------- Tablet (768–1023px) ---------- */
+@media (min-width: 768px) and (max-width: 1023px){
+  .collections-grid{ grid-template-columns: repeat(2, 1fr); }
+  .product-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Desktop (1024–1439px) ---------- */
+@media (min-width: 1024px) and (max-width: 1439px){
+  .container{ padding-left: 56px; padding-right: 56px; }
+}
+
+/* ---------- Large desktop (>=1440px) ---------- */
+@media (min-width: 1440px){
+  .container{ max-width: 1440px; }
+  .section{ padding: 180px 0; }
+  .hero__content, .page-hero__content{ padding-bottom: 110px; }
+}
+
+/* ---------- Very large desktop (>=1920px) ---------- */
+@media (min-width: 1920px){
+  .container{ max-width: 1560px; }
+}
+
+/* ---------- Ensure no horizontal scroll anywhere ---------- */
+img, video, svg{ max-width: 100%; height: auto; }
+.product-gallery__main img,
+.hero__media img,
+.immersive img,
+.collection-card__media img,
+.split__media img{ height: 100%; }
+
+/* ---------- Landscape phone tweak ---------- */
+@media (max-height: 480px) and (orientation: landscape){
+  .hero, .page-hero{ min-height: 130vh; }
+  .splash__logo{ width: 64px; height: 64px; }
+}
