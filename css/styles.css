@@ -345,7 +345,9 @@ h1, h2, h3, h4{
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: transparent;
+  background: rgba(23,22,19,0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: top 650ms var(--ease-luxury), left 650ms var(--ease-luxury), width 650ms var(--ease-luxury), height 650ms var(--ease-luxury), border-radius 650ms var(--ease-luxury), background var(--dur-fast) var(--ease-luxury), box-shadow 650ms var(--ease-luxury), backdrop-filter var(--dur-fast) var(--ease-luxury);
   transform: translateY(0);
 }
