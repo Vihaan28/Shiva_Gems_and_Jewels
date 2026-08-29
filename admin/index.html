@@ -6,11 +6,20 @@
   <title>Shiva Gems and Jewels — Admin</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="../assets/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
   <!-- Netlify Identity widget: lets employees log in -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <button class="admin-theme-toggle" id="adminThemeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+    <span aria-hidden="true">◐</span>
+    <span class="admin-theme-toggle__label">Dark mode</span>
+  </button>
   <!-- Decap CMS (formerly Netlify CMS) -->
+  <script src="admin.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
