@@ -6,9 +6,33 @@
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const body = document.body;
+  let lastScrollY = 0;
+  let isScrollingDown = false;
 
   function onScroll() {
     if (!header) return;
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+
+        // Determine scroll direction
+        const nowScrollingDown = scrollDelta > 0;
+
+        // At top: show full navbar
+        if (currentScrollY < 24) {
+          header.classList.remove("is-scrolled", "is-collapsed");
+          isScrollingDown = false;
+        } else if (nowScrollingDown && !isScrollingDown) {
+          // Transitioned to scrolling down: collapse navbar
+          header.classList.add("is-collapsed");
+          isScrollingDown = true;
+        } else if (!nowScrollingDown && isScrollingDown) {
+          // Transitioned to scrolling up: show full navbar
+          header.classList.remove("is-collapsed");
+          header.classList.add("is-scrolled");
+          isScrollingDown = false;
+        }
+
+        lastScrollY = currentScrollY;
     if (window.scrollY > 24) {
       header.classList.add("is-scrolled");
     } else {

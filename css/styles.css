@@ -345,13 +345,38 @@ h1, h2, h3, h4{
   display: flex;
   align-items: center;
   background: transparent;
-  transition: background var(--dur-fast) var(--ease-luxury), box-shadow var(--dur-fast) var(--ease-luxury), backdrop-filter var(--dur-fast) var(--ease-luxury);
+  transition: background var(--dur-fast) var(--ease-luxury), box-shadow var(--dur-fast) var(--ease-luxury), backdrop-filter var(--dur-fast) var(--ease-luxury), transform var(--dur-fast) var(--ease-luxury);
+  transform: translateY(0);
 }
 .site-header.is-scrolled{
   background: rgba(243,240,233,0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 rgba(23,22,19,0.08);
+.site-header.is-collapsed{
+  height: 80px;
+  background: rgba(243,240,233,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(23,22,19,0.08);
+}
+.site-header.is-collapsed .site-header__inner{
+  justify-content: center;
+}
+.site-header.is-collapsed .site-logo{
+  gap: 0;
+}
+.site-header.is-collapsed .site-logo__word{
+  display: none;
+}
+.site-header.is-collapsed .nav-desktop,
+.site-header.is-collapsed .nav-cta{
+  display: none;
+}
+.site-header.is-collapsed .nav-toggle{
+  position: absolute;
+  right: 20px;
+}
 }
 .site-header.is-scrolled .site-header__inner,
 .site-header.is-scrolled .nav-link,
