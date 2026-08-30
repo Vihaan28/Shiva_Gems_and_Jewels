@@ -14,6 +14,9 @@ publish_mode: simple
 # or https://your-site-name.netlify.app/admin.
 site_url: https://shivagemsandjewels.netlify.app
 display_url: https://shivagemsandjewels.netlify.app/admin
+logo:
+  src: /assets/logo/IMG_3009.jpeg
+  show_in_header: true
 
 collections:
 
