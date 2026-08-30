@@ -70,7 +70,7 @@
         el.textContent = contact.address;
       });
       document.querySelectorAll("[data-cms-map]").forEach((map) => {
-        map.src = "https://www.google.com/maps?q=" + encodeURIComponent(contact.address) + "&output=embed";
+        map.src = "https://www.google.com/maps?q=" + encodeURIComponent(contact.address) + "&output=embed&z=17";
       });
     }
 

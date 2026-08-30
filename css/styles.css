@@ -961,7 +961,7 @@ body.menu-open{ overflow: hidden; }
   width: 100%;
   aspect-ratio: 16/9;
   border: 1px solid var(--border-light);
-  filter: grayscale(1) contrast(1.05);
+  background: var(--cream);
 }
 .map-frame iframe{
   width: 100%;
