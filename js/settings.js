@@ -65,6 +65,13 @@
       });
     }
 
+    if (contact.address) {
+      document.querySelectorAll('[data-cms-contact="address"]').forEach((el) => {
+        el.textContent = contact.address;
+        el.classList.remove("placeholder-box");
+      });
+    }
+
     if (typeof applyShivaContactSettings === "function") {
       applyShivaContactSettings(contact);
     }
