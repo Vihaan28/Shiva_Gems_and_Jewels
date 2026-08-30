@@ -43,7 +43,7 @@ collections:
         pattern: true
     fields:
       - { label: "Product Name", name: "name", widget: "string" }
-      - { label: "Unique ID (no spaces, letters/numbers/dashes only)", name: "id", widget: "string", hint: "Used in the product's web address. Set once, then avoid changing it." }
+      - { label: "Unique ID (no spaces)", name: "id", widget: "string", hint: "Used in the product's web address. Set once, dont change again and again" }
       - label: "Category"
         name: "category"
         widget: "relation"
@@ -61,7 +61,7 @@ collections:
           - { label: "Fixed Price", value: "fixed" }
           - { label: "Starting From", value: "starting_from" }
         default: "on_request"
-      - { label: "Price (leave blank for Price on Request)", name: "price", widget: "string", required: false, hint: "Enter numbers only, e.g. 450000 — the website adds ₹ and commas automatically." }
+      - { label: "Price (leave blank for Price on Request)", name: "price", widget: "string", required: false, hint: "Enter numbers only,the website adds ₹ and commas automatically." }
       - label: "Primary Image"
         name: "primaryImage"
         widget: "image"
@@ -93,12 +93,12 @@ collections:
       preview: false
     fields:
       - { label: "Category Name", name: "name", widget: "string" }
-      - { label: "Slug (web address — lowercase, no spaces, e.g. jadau)", name: "slug", widget: "string" }
+      - { label: "Slug (URL safe identifier)", name: "slug", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - label: "Collection Card Image (vertical — for homepage and collections page)"
+      - label: "Collection Card Image (vertical)"
         name: "heroImage"
         widget: "image"
-      - label: "Category Page Hero Image (horizontal — for the category page header)"
+      - label: "Category Page Hero Image (horizontal)"
         name: "pageHeroImage"
         widget: "image"
         required: false
@@ -181,7 +181,7 @@ collections:
           - { label: "Phone Number 3", name: "phone3", widget: "string" }
           - { label: "Email Address", name: "email", widget: "string" }
           - { label: "Instagram URL", name: "instagram", widget: "string" }
-          - { label: "WhatsApp Number (digits only, country code, no + or spaces)", name: "whatsappNumber", widget: "string" }
+          - { label: "WhatsApp Number (enter country code without gaps. dont write +. EG: 919876543210)", name: "whatsappNumber", widget: "string" }
           - { label: "Showroom Address", name: "address", widget: "text" }
 
       - name: "homepage"
