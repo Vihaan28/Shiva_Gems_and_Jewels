@@ -1,0 +1,6 @@
+/* Keep media available to image fields, but remove its standalone navigation tab. */
+a[href="#/media"],
+a[href="/media"],
+a[href$="/#/media"] {
+  display: none !important;
+}
