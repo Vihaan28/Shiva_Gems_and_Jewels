@@ -12,8 +12,8 @@ publish_mode: simple
 # Set this to the live site URL used by Netlify Identity emails.
 # Use the actual domain, such as https://www.shivagemsandjewels.com/admin
 # or https://your-site-name.netlify.app/admin.
-site_url: https://shivatrial.netlify.app
-display_url: https://shivatrial.netlify.app/admin
+site_url: https://shivagemsandjewels.netlify.app
+display_url: https://shivagemsandjewels.netlify.app/admin
 
 collections:
 
