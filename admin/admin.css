@@ -53,12 +53,19 @@ body {
 }
 
 #nc-root button {
+  color: var(--admin-ink) !important;
   border-radius: 6px;
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 
 #nc-root button:hover {
+  color: var(--admin-ink) !important;
   box-shadow: 0 4px 12px rgba(37, 34, 30, 0.1);
+}
+
+#nc-root button:disabled,
+#nc-root button[aria-disabled="true"] {
+  color: var(--admin-muted) !important;
 }
 
 #nc-root input,
