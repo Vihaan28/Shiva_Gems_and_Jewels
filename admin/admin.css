@@ -4,3 +4,119 @@ a[href="/media"],
 a[href$="/#/media"] {
   display: none !important;
 }
+
+:root {
+  --admin-ink: #25221e;
+  --admin-muted: #746c62;
+  --admin-ivory: #f7f3ec;
+  --admin-paper: #fffdf9;
+  --admin-line: #e3dbd0;
+  --admin-champagne: #b28a55;
+  --admin-champagne-soft: rgba(178, 138, 85, 0.14);
+}
+
+html,
+body,
+#nc-root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--admin-ink);
+  background: var(--admin-ivory);
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#nc-root {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 100% 0, rgba(178, 138, 85, 0.1), transparent 28rem),
+    var(--admin-ivory);
+}
+
+#nc-root a,
+#nc-root button,
+#nc-root input,
+#nc-root textarea,
+#nc-root select {
+  font-family: "Manrope", sans-serif;
+}
+
+#nc-root a {
+  color: var(--admin-ink);
+}
+
+#nc-root a:hover {
+  color: var(--admin-champagne);
+}
+
+#nc-root button {
+  border-radius: 6px;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+#nc-root button:hover {
+  box-shadow: 0 4px 12px rgba(37, 34, 30, 0.1);
+}
+
+#nc-root input,
+#nc-root textarea,
+#nc-root select {
+  color: var(--admin-ink);
+  background: var(--admin-paper);
+  border-color: var(--admin-line);
+  border-radius: 6px;
+}
+
+#nc-root input:focus,
+#nc-root textarea:focus,
+#nc-root select:focus {
+  border-color: var(--admin-champagne);
+  box-shadow: 0 0 0 3px var(--admin-champagne-soft);
+  outline: none;
+}
+
+#nc-root aside,
+#nc-root nav {
+  border-color: var(--admin-line);
+}
+
+#nc-root aside a,
+#nc-root nav a {
+  border-radius: 6px;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+#nc-root aside a:hover,
+#nc-root nav a:hover {
+  color: var(--admin-ink);
+  background: var(--admin-champagne-soft);
+}
+
+#nc-root h1,
+#nc-root h2,
+#nc-root h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+#nc-root [role="button"]:focus-visible,
+#nc-root button:focus-visible,
+#nc-root a:focus-visible,
+#nc-root input:focus-visible,
+#nc-root textarea:focus-visible,
+#nc-root select:focus-visible {
+  outline: 3px solid var(--admin-champagne-soft);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  #nc-root input,
+  #nc-root textarea,
+  #nc-root select {
+    font-size: 16px;
+  }
+}
