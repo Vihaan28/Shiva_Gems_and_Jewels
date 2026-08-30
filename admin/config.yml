@@ -183,6 +183,7 @@ collections:
           - { label: "Instagram URL", name: "instagram", widget: "string" }
           - { label: "WhatsApp Number (enter country code without gaps. dont write +. EG: 919876543210)", name: "whatsappNumber", widget: "string" }
           - { label: "Showroom Address", name: "address", widget: "text" }
+          - { label: "Shop Image (optional)", name: "shopImage", widget: "image", required: false }
 
       - name: "homepage"
         label: "Homepage Content"

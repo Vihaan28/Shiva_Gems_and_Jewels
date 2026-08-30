@@ -68,7 +68,18 @@
     if (contact.address) {
       document.querySelectorAll('[data-cms-contact="address"]').forEach((el) => {
         el.textContent = contact.address;
-        el.classList.remove("placeholder-box");
+      });
+      document.querySelectorAll("[data-cms-map]").forEach((map) => {
+        map.src = "https://www.google.com/maps?q=" + encodeURIComponent(contact.address) + "&output=embed";
+      });
+    }
+
+    if (contact.shopImage) {
+      document.querySelectorAll('img[data-cms-contact="shopImage"]').forEach((image) => {
+        image.src = contact.shopImage;
+        image.hidden = false;
+        const placeholder = image.parentElement.querySelector(".shop-image-placeholder");
+        if (placeholder) placeholder.hidden = true;
       });
     }
 
