@@ -178,6 +178,7 @@ collections:
       - name: "contact"
         label: "Contact Details"
         file: "content/settings/contact.yml"
+        format: "yaml"
         fields:
           - { label: "Phone Number 1", name: "phone1", widget: "string" }
           - { label: "Phone Number 2", name: "phone2", widget: "string" }
@@ -191,6 +192,7 @@ collections:
       - name: "homepage"
         label: "Homepage Content"
         file: "content/settings/homepage.yml"
+        format: "yaml"
         fields:
           - { label: "Hero Eyebrow (small text above the headline)", name: "heroEyebrow", widget: "string" }
           - { label: "Hero Heading (use | for a line break)", name: "heroHeading", widget: "string" }
